@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1>Admin Dashboard</h1>
+@section('title', 'Admin Analytics Dashboard')
+@section('subtitle', 'Track adoption, voice profile growth, and translation throughput in one executive command center.')
 
-    <div class="card">
-        <p><strong>Total translations:</strong> {{ $summary['total_translations'] ?? 0 }}</p>
-        <p><strong>Total voice profiles:</strong> {{ $summary['total_voice_profiles'] ?? 0 }}</p>
+@section('content')
+    <div class="grid">
+        <div class="card">
+            <span class="pill">Global KPI</span>
+            <h3>Total translations</h3>
+            <p style="font-size:2rem; margin:0;">{{ $summary['total_translations'] ?? 0 }}</p>
+        </div>
+        <div class="card">
+            <span class="pill">Voice AI KPI</span>
+            <h3>Total voice profiles</h3>
+            <p style="font-size:2rem; margin:0;">{{ $summary['total_voice_profiles'] ?? 0 }}</p>
+        </div>
     </div>
 
     <div class="card">
@@ -21,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(($summary['recent_translations'] ?? []) as $row)
+                @forelse(($summary['recent_translations'] ?? []) as $row)
                     <tr>
                         <td>{{ $row['source_language'] }}</td>
                         <td>{{ $row['target_language'] }}</td>
@@ -29,7 +38,9 @@
                         <td>{{ $row['translated_text'] }}</td>
                         <td>{{ $row['provider'] }}</td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr><td colspan="5" class="muted">No recent translation activity.</td></tr>
+                @endforelse
             </tbody>
         </table>
     </div>

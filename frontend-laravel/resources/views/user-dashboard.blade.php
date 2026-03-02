@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1>User Dashboard</h1>
+@section('title', 'User Activity Dashboard')
+@section('subtitle', 'Monitor your translation usage, recent output quality, and productivity gains across sessions.')
 
+@section('content')
     <div class="card">
-        <p><strong>Your translation count (global in current API):</strong> {{ $summary['total_translations'] ?? 0 }}</p>
+        <span class="pill">Usage</span>
+        <h3>Your translation count (global in current API)</h3>
+        <p style="font-size:2rem; margin:0;">{{ $summary['total_translations'] ?? 0 }}</p>
     </div>
 
     <div class="card">
@@ -19,14 +22,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(($summary['recent_translations'] ?? []) as $row)
+                @forelse(($summary['recent_translations'] ?? []) as $row)
                     <tr>
                         <td>{{ $row['source_language'] }}</td>
                         <td>{{ $row['target_language'] }}</td>
                         <td>{{ $row['source_text'] }}</td>
                         <td>{{ $row['translated_text'] }}</td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr><td colspan="4" class="muted">No recent records yet.</td></tr>
+                @endforelse
             </tbody>
         </table>
     </div>

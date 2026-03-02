@@ -144,10 +144,12 @@ A Laravel-based frontend scaffold is included under `frontend-laravel/`.
 
 ### What it provides
 
-- Home translation form that calls backend `POST /translate`.
-- Admin dashboard page that consumes `GET /dashboard/admin/summary`.
-- User dashboard page that consumes `GET /dashboard/user/summary`.
-- Payments page that calls `POST /payments/initialize` for Flutterwave/PayPal.
+- Home translation workspace with modern high-tech UI.
+- Admin and user dashboards consuming backend analytics endpoints.
+- Pricing tables, referral package page, about-team page, and contact-us page.
+- Registration page with email + phone verification code fields.
+- Free-trial registration page.
+- Payments page that calls backend `POST /payments/initialize` for Flutterwave/PayPal.
 
 ### Setup
 
