@@ -137,3 +137,30 @@ Sample payload:
   "callback_url": "https://your-app.com/payment/callback"
 }
 ```
+
+## Laravel frontend
+
+A Laravel-based frontend scaffold is included under `frontend-laravel/`.
+
+### What it provides
+
+- Home translation form that calls backend `POST /translate`.
+- Admin dashboard page that consumes `GET /dashboard/admin/summary`.
+- User dashboard page that consumes `GET /dashboard/user/summary`.
+- Payments page that calls `POST /payments/initialize` for Flutterwave/PayPal.
+
+### Setup
+
+```bash
+cd frontend-laravel
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan serve --host=0.0.0.0 --port=8080
+```
+
+Set backend URL in `.env`:
+
+```bash
+WORLDVOICE_BACKEND_URL=http://127.0.0.1:8000
+```
