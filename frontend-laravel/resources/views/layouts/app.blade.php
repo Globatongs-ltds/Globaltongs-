@@ -87,6 +87,9 @@
                 <a href="{{ route('contact') }}">Contact</a>
                 <a href="{{ route('trial') }}">Free Trial</a>
                 <a href="{{ route('register') }}">Register</a>
+                <a href="{{ route('lms.dashboard') }}">LMS</a>
+                <a href="{{ route('schools.register') }}">Schools</a>
+                <a href="{{ route('students.register') }}">Students</a>
                 <a href="{{ route('payments.index') }}">Payments</a>
                 <a href="{{ route('admin.dashboard') }}">Admin</a>
                 <a href="{{ route('user.dashboard') }}">User</a>

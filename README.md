@@ -150,6 +150,9 @@ A Laravel-based frontend scaffold is included under `frontend-laravel/`.
 - Registration page with email + phone verification code fields.
 - Free-trial registration page.
 - Payments page that calls backend `POST /payments/initialize` for Flutterwave/PayPal.
+- Learning management dashboard with school and student onboarding flows.
+- Separate registration flows for schools and students.
+- Student language entitlement rule: basic plan allows 1 language, upgrade enables multiple languages.
 
 ### Setup
 

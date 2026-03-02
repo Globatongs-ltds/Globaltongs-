@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\EducationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'home'])->name('home');
@@ -25,3 +26,10 @@ Route::get('/referral-package', [MarketingController::class, 'referral'])->name(
 Route::get('/contact-us', [MarketingController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [MarketingController::class, 'contactSubmit'])->name('contact.submit');
 Route::get('/about-team', [MarketingController::class, 'team'])->name('team');
+
+
+Route::get('/lms/dashboard', [EducationController::class, 'dashboard'])->name('lms.dashboard');
+Route::get('/schools/register', [EducationController::class, 'schoolRegister'])->name('schools.register');
+Route::post('/schools/register', [EducationController::class, 'schoolRegisterSubmit'])->name('schools.register.submit');
+Route::get('/students/register', [EducationController::class, 'studentRegister'])->name('students.register');
+Route::post('/students/register', [EducationController::class, 'studentRegisterSubmit'])->name('students.register.submit');
